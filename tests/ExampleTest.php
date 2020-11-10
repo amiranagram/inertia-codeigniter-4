@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Skeleton\Tests;
+namespace Inertia\Tests;
 
 use PHPUnit\Framework\TestCase;
 
