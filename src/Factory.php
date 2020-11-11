@@ -2,8 +2,6 @@
 
 namespace Inertia;
 
-use Illuminate\Support\Arr;
-
 class Factory
 {
     public $sharedProps = [];

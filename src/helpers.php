@@ -113,7 +113,8 @@ if (! function_exists('closure_call')) {
      * @param $closure
      * @return mixed
      */
-    function closure_call($closure) {
+    function closure_call($closure)
+    {
         return $closure instanceof Closure ? $closure() : $closure;
     }
 }
