@@ -42,7 +42,7 @@ if (! function_exists('array_get')) {
      */
     function array_get($array, $key, $default = null)
     {
-        if (! is_array($value)) {
+        if (! is_array($array)) {
             return closure_call($default);
         }
 
@@ -59,7 +59,7 @@ if (! function_exists('array_get')) {
         }
 
         foreach (explode('.', $key) as $segment) {
-            if (is_array($value) && array_key_exists($segment, $array)) {
+            if (is_array($array) && array_key_exists($segment, $array)) {
                 $array = $array[$segment];
             } else {
                 return closure_call($default);
