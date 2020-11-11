@@ -46,9 +46,23 @@ class Response
 
     public function __toString()
     {
+        $partialData = $this->request()->getHeader('X-Inertia-Partial-Data');
+        $only = array_filter(
+            explode(',', $partialData ? $partialData->getValue() : '')
+        );
+
+        $partialComponent = $this->request()->getHeader('X-Inertia-Partial-Component');
+        $props = ($only && ($partialComponent ? $partialComponent->getValue() : '') === $this->component)
+            ? array_only($this->props, $only)
+            : $this->props;
+
+        array_walk_recursive($props, static function (&$prop) {
+            $prop = closure_call($prop);
+        });
+
         $page = [
             'component' => $this->component,
-            'props' => $this->props,
+            'props' => $props,
             'url' => $this->request()->detectPath(),
             'version' => $this->version,
         ];
@@ -58,7 +72,9 @@ class Response
 
     private function make($page)
     {
-        if ($this->request()->getHeader('X-Inertia')) {
+        $inertia = $this->request()->getHeader('X-Inertia');
+
+        if ($inertia && $inertia->getValue()) {
             $this->response()->setHeader('Vary', 'Accept');
             $this->response()->setHeader('X-Inertia', 'true');
             $this->response()->setHeader('Content-Type', 'application/json');

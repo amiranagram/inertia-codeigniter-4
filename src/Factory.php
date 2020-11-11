@@ -20,14 +20,14 @@ class Factory
         if (is_array($key)) {
             $this->sharedProps = array_merge($this->sharedProps, $key);
         } else {
-            Arr::set($this->sharedProps, $key, $value);
+            array_set($this->sharedProps, $key, $value);
         }
     }
 
     public function getShared($key = null)
     {
         if ($key) {
-            return Arr::get($this->sharedProps, $key);
+            return array_get($this->sharedProps, $key);
         }
 
         return $this->sharedProps;
@@ -41,7 +41,7 @@ class Factory
     public function getVersion()
     {
         $version = $this->version instanceof Closure
-            ? $this->call($this->version)
+            ? closure_call($this->version)
             : $this->version;
 
         return (string) $version;
@@ -65,11 +65,6 @@ class Factory
     public function app($page)
     {
         return '<div id="app" data-page="' . htmlentities(json_encode($page)) . '"></div>';
-    }
-
-    public function call($closure)
-    {
-        return $closure();
     }
 
     public function redirect($uri)
