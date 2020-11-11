@@ -48,9 +48,9 @@ class Response
     {
         $page = [
             'component' => $this->component,
-            'props'     => $this->props,
-            'url'       => $this->request()->detectPath(),
-            'version'   => $this->version,
+            'props' => $this->props,
+            'url' => $this->request()->detectPath(),
+            'version' => $this->version,
         ];
 
         return $this->make($page);
