@@ -70,7 +70,7 @@ class Response
         return $this->make($page);
     }
 
-    private function make($page)
+    private function make($page): string
     {
         $inertia = $this->request()->getHeader('X-Inertia');
 
