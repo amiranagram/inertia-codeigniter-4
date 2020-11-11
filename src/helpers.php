@@ -1,9 +1,9 @@
 <?php
 
-use Inertia\Services;
 use Inertia\Factory;
+use Inertia\Services;
 
-if (!function_exists('inertia')) {
+if (! function_exists('inertia')) {
     /**
      * @param null $component
      * @param array $props
