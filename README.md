@@ -1,8 +1,8 @@
 # Inertia server-side adapter for CodeIgniter 4
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/amirami/inertia-codeigniter-4.svg?style=flat-square)](https://packagist.org/packages/amirami/inertia-codeigniter-4)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/amirami/inertia-codeigniter-4/run-tests?label=tests)](https://github.com/amirami/inertia-codeigniter-4/actions?query=workflow%3Arun-tests+branch%3Amaster)
-[![Total Downloads](https://img.shields.io/packagist/dt/amirami/inertia-codeigniter-4.svg?style=flat-square)](https://packagist.org/packages/amirami/inertia-codeigniter-4)
+![Tests](https://github.com/amiranagram/inertia-codeigniter-4/workflows/Tests/badge.svg)
+[![Total Downloads](https://img.shields.io/packagist/dt/amirami/inertia-codeigniter-4.svg)](https://packagist.org/packages/amirami/inertia-codeigniter-4)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/amirami/inertia-codeigniter-4.svg)](https://packagist.org/packages/amirami/inertia-codeigniter-4)
 
 ## Installation
 
