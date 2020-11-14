@@ -2,13 +2,19 @@
 
 namespace Inertia\Tests;
 
-use PHPUnit\Framework\TestCase;
+use CodeIgniter\Test\CIUnitTestCase;
+use CodeIgniter\Test\ControllerTester;
 
-class ExampleTest extends TestCase
+class ExampleTest extends CIUnitTestCase
 {
-    /** @test */
-    public function true_is_true()
+    use ControllerTester;
+
+    public function testInertiaResponse()
     {
-        $this->assertTrue(true);
+        $result = $this->withUri('http://example.com')
+            ->controller(\Inertia\Controllers\TestController::class)
+            ->execute('index');
+
+        $this->assertTrue($result->isOK());
     }
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit backupGlobals="false"
          backupStaticAttributes="false"
-         bootstrap="vendor/autoload.php"
+         bootstrap="vendor/codeigniter4/framework/system/Test/bootstrap.php"
          colors="true"
          convertErrorsToExceptions="true"
          convertNoticesToExceptions="true"
@@ -15,17 +15,23 @@
             <directory>tests</directory>
         </testsuite>
     </testsuites>
-    <coverage>
-        <include>
+    <filter>
+        <whitelist addUncoveredFilesFromWhitelist="true" processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">./src</directory>
-        </include>
-        <report>
-            <html outputDirectory="build/coverage"/>
-            <text outputFile="build/coverage.txt"/>
-            <clover outputFile="build/logs/clover.xml"/>
-        </report>
-    </coverage>
+        </whitelist>
+    </filter>
     <logging>
-        <junit outputFile="build/report.junit.xml"/>
+        <log type="coverage-html" target="build/logs/html"/>
+        <log type="coverage-clover" target="build/logs/clover.xml"/>
+        <log type="coverage-php" target="build/logs/coverage.serialized"/>
+        <log type="coverage-text" target="php://stdout" showUncoveredFiles="false"/>
+        <log type="testdox-html" target="build/logs/testdox.html"/>
+        <log type="testdox-text" target="build/logs/testdox.txt"/>
+        <log type="junit" target="build/logs/logfile.xml"/>
     </logging>
+    <php>
+        <const name="HOMEPATH" value="./"/>
+        <const name="CONFIGPATH" value="./vendor/codeigniter4/framework/app/Config/"/>
+        <const name="PUBLICPATH" value="./vendor/codeigniter4/framework/public/"/>
+    </php>
 </phpunit>
