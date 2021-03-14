@@ -20,6 +20,16 @@ composer require amirami/inertia-codeigniter-4
 composer test
 ```
 
+## Roadmap
+
+### Tests
+
+* Controller test
+* Helper test. `inertia()` helper.
+* Inertia headers test. An Inertia request should return an Inertia response (JSON response).
+* Shared data test. It should be accesses in any response.
+* Lazy props test.
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
