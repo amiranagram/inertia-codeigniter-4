@@ -63,7 +63,7 @@ class Response
         $page = [
             'component' => $this->component,
             'props' => $props,
-            'url' => $this->request()->detectPath(),
+            'url' =>'/'.$this->request()->detectPath(),
             'version' => $this->version,
         ];
 
